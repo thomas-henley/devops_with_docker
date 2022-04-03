@@ -1,0 +1,2 @@
+C:\Users\thenley\authorized\devops_with_docker\part1\examples\ex01-07> docker build . -t 1-10
+C:\Users\thenley\authorized\devops_with_docker\part1\examples\ex01-07> docker run -p 9000:8080 1-10
