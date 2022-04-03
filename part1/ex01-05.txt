@@ -1,0 +1,49 @@
+thenley@THENLEY0L3:/$ docker pull devopsdockeruh/simple-web-service:ubuntu
+ubuntu: Pulling from devopsdockeruh/simple-web-service
+Digest: sha256:d44e1dce398732e18c7c2bad9416a072f719af33498302b02929d4c112e88d2a
+Status: Image is up to date for devopsdockeruh/simple-web-service:ubuntu
+docker.io/devopsdockeruh/simple-web-service:ubuntu
+
+thenley@THENLEY0L3:/$ docker pull devopsdockeruh/simple-web-service:alpine
+alpine: Pulling from devopsdockeruh/simple-web-service
+ba3557a56b15: Pull complete
+1dace236434b: Pull complete
+4f4fb700ef54: Pull complete
+Digest: sha256:dd4d367476f86b7d7579d3379fe446ae5dfce25480903fb0966fc2e5257e0543
+Status: Downloaded newer image for devopsdockeruh/simple-web-service:alpine
+docker.io/devopsdockeruh/simple-web-service:alpine
+
+thenley@THENLEY0L3:/$ docker images
+REPOSITORY                          TAG       IMAGE ID       CREATED         SIZE
+ubuntu                              latest    ff0fea8310f3   2 weeks ago     72.8MB
+fav_distro                          bionic    b67d6ac264e4   2 weeks ago     63.2MB
+ubuntu                              18.04     b67d6ac264e4   2 weeks ago     63.2MB
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   12 months ago   83MB
+devopsdockeruh/simple-web-service   alpine    fd312adc88e0   12 months ago   15.7MB
+
+thenley@THENLEY0L3:/$ docker run -dit --name dev_ubuntu 4e
+dc28b69ca8836489ce4fa92d8cd5ae1430edfa57e535da6e641d5f26d741d498
+
+thenley@THENLEY0L3:/$ docker run -dit --name dev_alpine fd
+14ae591bd6a6fb700108e27bd18744807ee7d21e4744c8eb37ca5cf3a6541116
+
+thenley@THENLEY0L3:/$ docker image ls -a
+REPOSITORY                          TAG       IMAGE ID       CREATED         SIZE
+devopsdockeruh/simple-web-service   ubuntu    4e3362e907d5   12 months ago   83MB
+devopsdockeruh/simple-web-service   alpine    fd312adc88e0   12 months ago   15.7MB
+
+thenley@THENLEY0L3:/$ docker exec dev_alpine sh -c 'cat /usr/src/app/text.log'
+2022-04-02 15:13:44 +0000 UTC
+2022-04-02 15:13:46 +0000 UTC
+2022-04-02 15:13:48 +0000 UTC
+2022-04-02 15:13:50 +0000 UTC
+2022-04-02 15:13:52 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
+
+thenley@THENLEY0L3:/$ docker exec dev_ubuntu sh -c 'cat /usr/src/app/text.log'
+2022-04-02 15:13:24 +0000 UTC
+2022-04-02 15:13:26 +0000 UTC
+2022-04-02 15:13:28 +0000 UTC
+2022-04-02 15:13:30 +0000 UTC
+2022-04-02 15:13:32 +0000 UTC
+Secret message is: 'You can find the source code here: https://github.com/docker-hy'
