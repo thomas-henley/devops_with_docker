@@ -1,0 +1,22 @@
+### DOCKERFILE for example-backend ###
+
+# Start with an image designed for golang
+FROM golang:1.16
+
+WORKDIR /usr/src/app
+
+EXPOSE 8080
+
+# Load the project into the container
+COPY . .
+
+# Run `go build` to generate `server` binary
+RUN go build
+
+# Run tests
+CMD ["./server"]
+
+
+### COMMANDS ###
+docker build . -t example-backend
+docker run -it --rm -p 8080:8080 example-backend
