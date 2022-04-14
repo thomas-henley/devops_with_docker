@@ -1,3 +1,1 @@
-FROM devopsdockeruh/simple-web-service
-
-CMD server
+FROM devopsdockeruh/simple-web-service:ubuntu

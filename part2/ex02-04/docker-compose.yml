@@ -1,0 +1,32 @@
+version: '3.8'
+
+# docker-compose.yml is in a directory called 'web-stack'. 
+# The 'example-backend' and 'example-frontend' directories are siblings to the compose file.
+
+# web-stack
+# ├───example-backend
+# │   ├───...
+# │   └───Dockerfile
+# ├───example-frontend
+# │   ├───...
+# │   └───Dockerfile
+# └───docker-compose.yml
+
+services:
+  frontend:
+    build: ./example-frontend
+    container_name: frontend
+    ports:
+      - 5000:5000
+  
+  backend:
+    build: ./example-backend
+    container_name: backend
+    environment:
+      - REDIS_HOST=redis
+    ports:
+      - 8080:8080
+
+  redis:
+    image: redis:latest
+    container_name: redis
