@@ -1,0 +1,1 @@
+All I changed was opening the backend REQUEST_ORIGIN to all ports so that requests from the frontend wouldn't get CORS-blocked.

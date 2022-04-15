@@ -36,8 +36,6 @@ services:
       POSTGRES_PASSWORD: postgres
     restart: unless-stopped
     container_name: postgres_db
-    volumes:
-      - ./database:/var/lib/postgresql/data
 
   redis:
     image: redis:latest
