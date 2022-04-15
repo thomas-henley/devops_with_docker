@@ -1,0 +1,14 @@
+At my job, every time we push our code to the version control system we run our test pipelines. 
+The cloud VM's that run the tests are fragile and tempermental, and they frequently stop working
+correctly due to various software issues. We have wanted to containerize the tests for a long time,
+so that managing and maintaining the VMs can be as simple as just keeping Docker working correctly.
+
+While working through this course, I have been applying what I learn to containerize our entire test suite.
+I use three containers -- one for the IoT edge program we're testing, one for the server our program needs to
+communicate with, and one to function as a proxy server for the integration tests that validate we work correctly
+through a proxy. I used docker-compose to orchestrate the containers. I used some creative docker-compose 
+networking so that during the proxy tests the Edge system cannot reach the server without the proxy. I used a 
+volume to save our code coverage report after the containers finish running, so that the test runner can output 
+it as an artifact. Overall, it has been a huge success and I'm excited to present it to my team.
+
+Next, I plan to docker-ize our Linux development environment so we can quickly and easily onboard new hires.
