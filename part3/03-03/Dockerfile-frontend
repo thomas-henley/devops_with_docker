@@ -1,0 +1,27 @@
+# DOCKERFILE for example-frontend
+
+# Start with an image used for Node. The Readme uses v.16, so we will as well.
+FROM node:16
+
+WORKDIR /usr/src/app
+
+EXPOSE 5000
+
+# Load the project into the container
+COPY . .
+
+# Install all packages
+RUN npm install
+
+# Build the static files
+RUN REACT_APP_BACKEND_URL=http://localhost:8080/ npm run build
+
+# Install "serve" package
+RUN npm install -g serve
+
+# Create and switch to non-root user
+RUN useradd -m userbot
+USER userbot
+
+# Start the server
+CMD ["serve", "-s", "-l", "5000", "build"]

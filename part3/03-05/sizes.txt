@@ -1,0 +1,5 @@
+        |  Frontend  |  Backend  |
+Before  |  1.22GB    |  1.07GB   |
+After   |   423MB    |   447MB   |
+
+Switched base images from golang:1.16 to golang:1.16-alpine and node:16 to node:16-alpine.

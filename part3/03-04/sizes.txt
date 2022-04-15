@@ -1,0 +1,5 @@
+        |  Frontend  |  Backend  |
+Before  |  1.22GB    |  1.22GB   |
+After   |  1.08GB    |  1.07GB   |
+
+I'm using node and golang base images, so they are pretty large. I didn't want to change the base image since that is the purpose of Exercise 03-05.
